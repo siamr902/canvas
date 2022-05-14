@@ -1,1 +1,1 @@
-# jokes
+Pure jokes
