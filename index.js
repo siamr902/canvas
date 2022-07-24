@@ -5,11 +5,9 @@ const canvas = document.querySelector('#meme');
 
 let image;
 
-// for whenever the user picks a new image
 imageFileInput.addEventListener('change', () => {
     // take in a file and return a string containing the object url
     const imageDataURL = URL.createObjectURL(imageFileInput.files[0]);
-    // create a new instance of the image and add the source
     image = new Image();
     image.src = imageDataURL;
     // the image won't render immediately, so we add an event listener
