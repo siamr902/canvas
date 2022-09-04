@@ -10,7 +10,6 @@ imageFileInput.addEventListener('change', () => {
     const imageDataURL = URL.createObjectURL(imageFileInput.files[0]);
     image = new Image();
     image.src = imageDataURL;
-    // the image won't render immediately, so we add an event listener
     image.addEventListener('load', () => {
         updateMemeCanvas(canvas, image, topText.value, bottomText.value)
     }, { once: true });
@@ -30,18 +29,14 @@ const updateMemeCanvas = (canvas, image, topText, bottomText) => {
     const fontSize = Math.floor(width / 10);
     const yOffset = height / 25;
 
-    // ensure same dimensions of the image
     canvas.width = width;
     canvas.height = height;
     ctx.drawImage(image, 0, 0);
 
-    // black border around the text
     ctx.strokeStyle = 'black';
     ctx.lineWidth = Math.floor(fontSize / 4);
-    // fill w/white
     ctx.fillStyle = 'white';
     ctx.textAlign = 'center';
-    // ensures no strange spikes in our text
     ctx.lineJoin = 'round';
     ctx.font = `${fontSize}px sans-serif`;
 
